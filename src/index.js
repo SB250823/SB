@@ -67,12 +67,13 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = "895dbd2a2e3004cda38ea72e8ac6c170";
+  let apiKey = "311f1f45fee82242ab4086372ab360f5";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
+  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -99,7 +100,7 @@ function displayTemperature(response) {
 }
 
 function search(city) {
-  let apiKey = "895dbd2a2e3004cda38ea72e8ac6c170";
+  let apiKey = "311f1f45fee82242ab4086372ab360f5";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -114,3 +115,4 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("Birmingham");
+
